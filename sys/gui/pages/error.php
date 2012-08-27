@@ -4,7 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<title><?php echo $error['code'] ;?> Error: NoFrills CMS</title>
-	<link rel='stylesheet' href='assets/css/bootstrap.css'/>
+	<link rel='stylesheet' href='assets/css/bootstrap.min.css'/>
+	<link rel='stylesheet' href='assets/css/bootstrap-responsive.min.css'/>
 	<link rel='stylesheet' href='assets/css/style.css'/>
 </head>
 <body>
