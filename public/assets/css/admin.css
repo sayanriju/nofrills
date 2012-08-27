@@ -1,0 +1,8 @@
+#editor .CodeMirror-scroll {
+	height: 100%;
+}
+#editor .CodeMirror-lines {/*font-size:11pt;*/}
+.activeline {background: #EFEFFF !important;}
+button {outline:none !important;}
+.siteurl {font-size:80% !important;color:#6FB9FF;}
+.siteurl:hover {color:#6FB9FF !important;}
