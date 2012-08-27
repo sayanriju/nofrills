@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>FuelPHP Framework</title>
+	<title><?php echo $error['code'] ;?> Error: NoFrills CMS</title>
 	<link rel='stylesheet' href='assets/css/bootstrap.css'/>
 	<link rel='stylesheet' href='assets/css/style.css'/>
 </head>

@@ -2,19 +2,18 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>FuelPHP Framework</title>
+	<title>NoFrills CMS</title>
 	<link rel='stylesheet' href='assets/css/bootstrap.css'/>
 	<link rel='stylesheet' href='assets/css/style.css'/>
 </head>
 <body>
 	<div class="container" style='margin:5em auto;width:940px;'>
 		<div class="hero-unit">
-			<h1>NoFrills CMS</h1>
-			<p>Welcome to the lightweight, minimalistic, geeky Content Management System with absolutely No Frills attached!</p>
+			<h1><?php echo F3::get('SITENAME');?></h1>
+			<p>Welcome to the lightweight, minimalistic &amp; geeky Content Management System with absolutely No Frills attached!</p>
             <br/>
 			<p>
-                
-                <a class="btn btn-info large" href="<?php echo F3::get("SITEURL");?>/admin">Login to Admin</a>
+                <a class="btn btn-info large" href="<?php echo F3::get("SITEURL");?>/admin">Login to Admin Panel</a>
             </p>
 		</div>
 		<footer class='pull-right'>
