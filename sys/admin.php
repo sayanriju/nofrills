@@ -82,13 +82,9 @@ F3::route("POST /admin/ajax.php", function(){   // Do actual stuff via ajax
 		$code = trim(stripslashes($code));
 		
 		if (file_put_contents($file, $code) !== false){
-			$alert['type'] = "alert-success";
-			$alert['message'] = "File saved successfully.";
 			$response = 'success';
 		}
 		else {
-			$alert['type'] = "alert-error";
-			$alert['message'] = "There was a problem saving the file.";
 			$response = 'fail';
 		}
 	}
