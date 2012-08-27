@@ -1,1 +1,7 @@
 /* Add custom styles here */
+body{
+    background:url('../img/burried.png');
+}
+footer{
+    color:#C9CBCB;
+}

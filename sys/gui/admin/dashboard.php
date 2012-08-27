@@ -63,7 +63,7 @@
 
         <script>
             // Define Variables for use within javascript files included below
-            var siteurl=<?php echo json_encode(F3::get('BASEURL'));?>;
+            var siteurl=<?php echo json_encode(F3::get('SITEURL'));?>;
             var routes=<?php echo F3::get('routes_json');?>;
         </script>
 		<script src="../assets/js/jquery.js"></script>

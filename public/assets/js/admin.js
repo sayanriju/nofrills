@@ -168,11 +168,11 @@ $(function() {
 	});
 	// Visit site button
     $("#visit_site").click( function(){
-        window.open(siteurl); //N.B: var siteurl defined within index.php
+        window.open(siteurl); //N.B: var siteurl defined within dashboard.php
     });
     // Logout button
     $("#logout").click( function(){
-        window.location.href=siteurl+"logout"; //N.B: var siteurl defined within index.php
+        window.location.href=siteurl+"/logout"; //N.B: var siteurl defined within dashboard.php
     });    
 	// Setup keyboard shortcuts
 	$.ctrl('S', function() {

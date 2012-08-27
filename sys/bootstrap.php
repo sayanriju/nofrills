@@ -21,7 +21,7 @@ F3::set('ONERROR', function() {
 /* Admin Routes */
 require_once "admin.php";
 
-/* Dynamically generated Routes (slug based) */
+/* Generate the defined Routes (slug based) */
 $routes_json=Helper::json_minify(@file_get_contents(F3::get('CONFIGDIR')."/routes.json"));
 F3::set("routes_json",$routes_json);    // Store as Framework variable to decode and use elsewehere
 foreach (json_decode($routes_json,true) as $slug=>$page)
