@@ -46,8 +46,7 @@ F3::route("GET /admin", function(){
 F3::route("POST /admin/ajax.php", function(){   // Do actual stuff via ajax
     if(F3::get('SESSION.whoami')=='')
     {
-        $response=-99; // Do nothing if not logged in.
-        die();
+        die('-99'); // Do nothing if not logged in.
     }
     
     // If 'createfile' is passed, create it

@@ -63,6 +63,9 @@ function createFile(createfile) {
 	$.post("admin/ajax.php", { createfile: createfile }, function(data) {
         var msg='';
         switch(data){
+            // Not logged in : failure!
+            case '-99': msg='<div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">×</a><h4 class="alert-heading">You are not logged in!</h4></div>';
+                        break;
             // Unacceptable filename extension : failure!
             case '-2': msg='<div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">×</a><h4 class="alert-heading">Unacceptable (or non-existent) filename extension! Only one of *.htm, *.html, *.php is allowed</h4></div>';
                     break;
@@ -83,16 +86,33 @@ function createFile(createfile) {
 // Gets file contents using ajax and loads into editor
 function getFile(file) {
 	$.post("admin/ajax.php", { file: file }, function(data) {
+        if(data=='-99'){
+            $('#alerts').append('<div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">×</a><h4 class="alert-heading">You are not logged in!</h4></div>');
+            return false;
+        } 
 		selected = file;
 		newFile = true;
 		editor.setValue(data);
 		newFile = false;
+        // Show route for selected page file
+        var page=file.replace(/\\/g,'/').replace( /.*\//, '' );
+        if (getKey(page,routes)) {
+            var route=siteurl+'/'+getKey(page,routes)
+            $('#filename').html("Route: <a class='siteurl' href='"+route+"' title='Click to go to URL in new tab/window' target='_blank'>"+route+"</a>");
+        }
+        else{
+            $('#filename').html('');
+        }        
 	});
 }
 
 // Save file contents in editor using ajax
 function saveFile(){
 	$.post("admin/ajax.php", { file: selected, code: editor.getValue() }, function(data) {
+        if(data=='-99'){
+            $('#alerts').append('<div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">×</a><h4 class="alert-heading">You are not logged in!</h4></div>');
+            return false;
+        }
 		if (data === 'success') {
 			// Reset modified state
 			modified = false;
@@ -133,16 +153,7 @@ $(function() {
 	$('#file-tree .file-item').click(function() {
 		var confirmed = false;
 		var file = $(this).attr('path');
-		var ext = file.substr(file.lastIndexOf('.') + 1);
-        // Show route for selected page file
-        var page=file.replace(/\\/g,'/').replace( /.*\//, '' );
-        if (getKey(page,routes)) {
-            var route=siteurl+getKey(page,routes)
-            $('#filename').html("Route: <a class='siteurl' href='"+route+"' title='Click to go to URL in new tab/window' target='_blank'>"+route+"</a>");
-        }
-        else
-            $('#filename').html('');
-		
+		var ext = file.substr(file.lastIndexOf('.') + 1);	
 		// If file extension is valid for editor
 		if (extensions[ext] != null) {
 			if (modified) {
@@ -158,11 +169,11 @@ $(function() {
 				$('#file-tree li').removeClass('active');
 				$(this).parent().addClass('active');
 				// Load file
-				getFile(file);
-				// Reset modified state
-				modified = false;
-			}
-		}
+				getFile(file);             
+                // Reset modified state
+                modified = false;
+            }
+        }
 			
 		return false;
 	});

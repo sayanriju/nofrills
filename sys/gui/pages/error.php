@@ -10,7 +10,9 @@
 <body>
 	<div class="container" style='margin:5em auto;width:940px;'>
 		<div class="hero-unit">
-            <h1><?php echo "$error[code] - $error[title]!";?></h1>
+            <h1><?php echo "$error[code] - $error[title]!";?>
+            <button class='pull-right btn-danger btn-large' onclick='window.location.href="<?php echo F3::get('SITEURL');?>"'><i class='icon-home icon-white'></i> Return to Home Page</button>
+            </h1>
             <br/>
             <p style='margin:1em auto 0;font-style:italic;'><?php echo $error['text'] ;?></p>
 		</div>

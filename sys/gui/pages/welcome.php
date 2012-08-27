@@ -15,6 +15,8 @@
 			<p>
                 <a class="btn btn-info large" href="<?php echo F3::get("SITEURL");?>/admin">Login to Admin Panel</a>
             </p>
+            Default Username: <strong>admin</strong><br/>
+            Default Password:  <strong>admin</strong>
 		</div>
 		<footer class='pull-right'>
 			<p>
