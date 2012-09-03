@@ -5,10 +5,10 @@
 		<title>NoFrills CMS : Admin Control Panel</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-		<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="../assets/css/bootstrap-responsive.min.css" rel="stylesheet">
-		<link href="../assets/css/codemirror.css" rel="stylesheet">
-		<link href="../assets/css/admin.css" rel="stylesheet">
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="assets/css/codemirror.css" rel="stylesheet">
+		<link href="assets/css/admin.css" rel="stylesheet">
 	</head>
 	<body>
     <div class="page-header well">
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="span9">
-                <div class="navbar">
+                <div class="navbar navbar-inverse">
                   <div class="navbar-inner">
                       <span class='brand'><em id="filename"></em></span> 
                     <div class="container">
@@ -71,10 +71,10 @@
             var siteurl=<?php echo json_encode(F3::get('SITEURL'));?>;
             var routes=<?php echo F3::get('routes_json');?>;
         </script>
-		<script src="../assets/js/jquery.js"></script>
-		<script src="../assets/js/codemirror.min.js"></script>
-		<script src="../assets/js/bootstrap.js"></script>
-		<script src="../assets/js/admin.js"></script>
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/codemirror.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/admin.js"></script>
 
 	</body>
 </html>
