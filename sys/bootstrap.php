@@ -26,6 +26,7 @@ $routes_json=Helper::json_minify(@file_get_contents(F3::get('CONFIGDIR')."/route
 F3::set("routes_json",$routes_json);    // Store as Framework variable to decode and use elsewehere
 foreach (json_decode($routes_json,true) as $slug=>$page)
 {
+    $slug=ltrim($slug,'/'); // To avoid double-slashes in url
     F3::route(
         "GET /$slug",
         function() use($page)

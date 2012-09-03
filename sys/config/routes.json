@@ -1,6 +1,5 @@
 {
     // <route> : <target page file>
-    // Note: A '/' is auto-prepended to <route>; so "" actually means the docroot
-    "welcome":"welcome.php",
-    "":"welcome.php"
+    "/":"welcome.php",  
+    "welcome":"welcome.php"
 }

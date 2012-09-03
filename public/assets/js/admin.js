@@ -7,6 +7,12 @@ function getKey(val,arr){
     }
     return null;
 }
+function trimStartSlash(s){
+	var l=0;
+	while(l < s.length && s[l] == '/')
+	{	l++; }
+	return s.substring(l, s.length);
+}
 // Initialize CodeMirror editor
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 	lineNumbers: true,
@@ -97,7 +103,7 @@ function getFile(file) {
         // Show route for selected page file
         var page=file.replace(/\\/g,'/').replace( /.*\//, '' );
         if (getKey(page,routes)) {
-            var route=siteurl+'/'+getKey(page,routes)
+            var route=siteurl+'/'+trimStartSlash(getKey(page,routes));
             $('#filename').html("Route: <a class='siteurl' href='"+route+"' title='Click to go to URL in new tab/window' target='_blank'>"+route+"</a>");
         }
         else{
