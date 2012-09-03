@@ -71,7 +71,7 @@ F3::route("POST /admin/ajax.php", function(){   // Do actual stuff via ajax
     
     // If a file path is passed in, open it and get its contents
 	if (isset($_POST['file'])) {
-		$response = file_get_contents($_POST['file']);
+		$response = @file_get_contents($_POST['file']);
 	}
 	
 	// If file contents are passed in, update the file with the new contents
@@ -81,7 +81,7 @@ F3::route("POST /admin/ajax.php", function(){   // Do actual stuff via ajax
 		
 		$code = trim(stripslashes($code));
 		
-		if (file_put_contents($file, $code) !== false){
+		if (@file_put_contents($file, $code) !== false){    // add @ to avoid throwing 500 server error
 			$response = 'success';
 		}
 		else {
