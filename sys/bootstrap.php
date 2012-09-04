@@ -13,6 +13,8 @@ F3::config(F3::get('CONFIGDIR').'/settings.cfg');
 if(!F3::get('CACHE'))
     F3::set('CACHE_TIMEOUT',0); // If caching is disabled, force timeout value to 0
 
+F3::set('SITEURL',rtrim(F3::get('SITEURL'),'/')); // Delete trailing slash from SITEURL
+
 /* Custom Error Pages */
 F3::set('ONERROR', function() {
         echo F3::render("pages/error.php");

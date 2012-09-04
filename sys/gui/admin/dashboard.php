@@ -31,15 +31,15 @@
             <div id="file-tree" class="span3">
                 <div class="row">
                     <h3>Page Files<button id="createnew" class="btn btn-primary btn-mini pull-right"><i class="icon-plus-sign icon-white"></i> Create New Page</button></h3>
-                    <div class="well"><?php Helper::output_directory('../sys/gui/pages'); ?></div>
+                    <div class="well"><?php Helper::output_directory(SYSDIR.'gui/pages'); ?></div>
                 </div>
                 <div class="row">
                     <h3>Asset Files</h3>
-                    <div class="well"><?php Helper::output_directory('../public/assets'); ?></div>
+                    <div class="well"><?php Helper::output_directory('assets'); ?></div>
                 </div>
                 <div class="row">
                     <h3>Config Files</h3>
-                    <div class="well"><?php Helper::output_directory('../sys/config'); ?></div>
+                    <div class="well"><?php Helper::output_directory(SYSDIR.'config'); ?></div>
                 </div>
             </div>
             <div class="span9">
