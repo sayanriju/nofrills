@@ -25,7 +25,6 @@ require_once "admin.php";
 $routes_json=Helper::json_minify(@file_get_contents(F3::get('CONFIGDIR')."/routes.json"));
 F3::set("routes_json",$routes_json);    // Store as Framework variable to decode and use elsewehere
 
-if(!F3::get('MAINTENANCE_MODE')) {
     foreach (json_decode($routes_json,true) as $slug=>$page)
     {
         $slug=ltrim($slug,'/'); // To avoid double-slashes in url
@@ -33,18 +32,21 @@ if(!F3::get('MAINTENANCE_MODE')) {
             "GET /$slug",
             function() use($page)
             {
-                if(file_exists(F3::get('GUI')."/pages/$page"))
-                    echo F3::render("pages/$page");
+                if(file_exists(F3::get('GUI')."/pages/$page")){
+                    if( ! F3::get('MAINTENANCE_MODE') ) {
+                        echo F3::render("pages/$page");
+                    }
+                    else {      // In maintanence mode; show under construction page
+                        echo F3::render("pages/under_construction.php");
+                    }
+                }
                 else
                     F3::error(404);
             },
             F3::get('CACHE_TIMEOUT')
         );
     }
-}
-else {      // In maintanence mode; show under construction page
-    echo F3::render("pages/under_construction.php");
-}
+
 
 /* Run the app! */
 F3::run();
